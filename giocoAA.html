@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crea la tua squadra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      width: 200px;
+    }
+    button {
+      margin-top: 10px;
+    }
+    #team-list {
+      margin-top: 20px;
+    }
+    #team-list li {
+      list-style-type: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Crea la tua squadra</h1>
+
+  <label for="player-name">Nome giocatore:</label>
+  <input type="text" id="player-name">
+  <button onclick="addPlayer()">Aggiungi giocatore</button>
+
+  <h2>La tua squadra</h2>
+  <ul id="team-list"></ul>
+
+  <script>
+    function addPlayer() {
+      var playerNameInput = document.getElementById('player-name');
+      var playerName = playerNameInput.value;
+      playerNameInput.value = '';
+
+      if (playerName.trim() !== '') {
+        var teamList = document.getElementById('team-list');
+        var playerItem = document.createElement('li');
+        playerItem.textContent = playerName;
+        teamList.appendChild(playerItem);
+      }
+    }
+  </script>
+</body>
+</html>
